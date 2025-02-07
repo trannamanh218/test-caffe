@@ -18,19 +18,15 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.4/vegas.min.css"
       rel="stylesheet"
     />
-
-    <link href="css/tooplate-barista.css" rel="stylesheet" />
   </head>
 
   <body>
     <main>
       <nav
-        class="fixed top-0 left-1/2 transform -translate-x-1/2 z-10 w-[900px] bg-black/50 shadow rounded-lg mt-4"
+        class="fixed top-0 left-1/2 transform -translate-x-1/2 z-[1000] w-full max-w-[1200px] bg-black/50 shadow rounded-lg mt-4 p-6"
       >
-        <div
-          class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16"
-        >
-          <a href="index.html" class="flex items-center">
+        <div class="flex flex-wrap justify-between items-center">
+          <a href="index.html" class="flex items-center mb-2 lg:mb-0">
             <img
               src="images/coffee-beans.png"
               style="filter: brightness(0) invert(1)"
@@ -39,7 +35,30 @@
             />
             <span class="text-xl font-bold text-white">Barista</span>
           </a>
-          <div class="hidden md:flex space-x-8">
+
+          <!-- Mobile Menu Button -->
+          <button
+            class="text-gray-200 focus:outline-none lg:hidden"
+            id="menu-toggle"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
+            </svg>
+          </button>
+
+          <!-- Menu Items -->
+          <div class="hidden w-full lg:flex lg:w-auto lg:space-x-8" id="menu">
             <a
               href="#section_1"
               class="text-gray-200 hover:text-white transition"
@@ -66,65 +85,45 @@
               >Contact</a
             >
           </div>
-          <div class="hidden md:flex">
+
+          <!-- Reservation Button -->
+          <div class="hidden lg:block">
             <a
               href="#section_5"
               class="btn bg-white border border-gray-300 px-4 py-2 rounded-lg hover:bg-gray-100 transition"
             >
-              Reservation
-              <i class="bi-arrow-up-right ml-2"></i>
+              Reservation <i class="bi-arrow-up-right ml-2"></i>
             </a>
           </div>
-          <div class="md:hidden">
-            <button
-              class="text-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300"
-              id="menu-toggle"
-            >
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16m-7 6h7"
-                ></path>
-              </svg>
-            </button>
-          </div>
         </div>
-        <div class="hidden md:hidden" id="mobile-menu">
-          <div class="px-2 pt-2 pb-3 space-y-1">
-            <a
-              href="#section_1"
-              class="block text-gray-200 hover:text-white transition"
-              >Home</a
-            >
-            <a
-              href="#section_2"
-              class="block text-gray-200 hover:text-white transition"
-              >About</a
-            >
-            <a
-              href="#section_3"
-              class="block text-gray-200 hover:text-white transition"
-              >Our Menu</a
-            >
-            <a
-              href="#section_4"
-              class="block text-gray-200 hover:text-white transition"
-              >Reviews</a
-            >
-            <a
-              href="#section_5"
-              class="block text-gray-200 hover:text-white transition"
-              >Contact</a
-            >
-          </div>
+
+        <!-- Mobile Menu -->
+        <div class="hidden flex-col space-y-2 mt-4 lg:hidden" id="mobile-menu">
+          <a
+            href="#section_1"
+            class="block text-gray-200 hover:text-white transition"
+            >Home</a
+          >
+          <a
+            href="#section_2"
+            class="block text-gray-200 hover:text-white transition"
+            >About</a
+          >
+          <a
+            href="#section_3"
+            class="block text-gray-200 hover:text-white transition"
+            >Our Menu</a
+          >
+          <a
+            href="#section_4"
+            class="block text-gray-200 hover:text-white transition"
+            >Reviews</a
+          >
+          <a
+            href="#section_5"
+            class="block text-gray-200 hover:text-white transition"
+            >Contact</a
+          >
         </div>
       </nav>
 
@@ -178,7 +177,7 @@
                 Your browser does not support the video tag.
               </video>
               <div
-                class="absolute inset-0 bg-black/30 flex flex-col justify-end p-6"
+                class="absolute inset-0 bg-black/30 flex flex-col justify-end p-6 bg-gradient-to-b from-black/30 to-[#bc6c25] bottom-0 w-full"
               >
                 <h4 class="text-lg font-semibold text-white">
                   We Started Since 2009.
@@ -233,7 +232,7 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- Team Member 1 -->
-            <div class="team-block-wrap">
+            <div class="relative rounded-[15px] overflow-hidden">
               <div class="relative overflow-hidden rounded-lg">
                 <img
                   src="images/team/portrait-elegant-old-man-wearing-suit.jpg"
@@ -241,7 +240,9 @@
                   alt="Steve"
                 />
               </div>
-              <div class="team-block-info flex flex-col justify-end mt-auto">
+              <div
+                class="flex flex-col justify-end mt-auto absolute z-10 top-0 p-3 bg-gradient-to-b from-black/30 to-[#bc6c25] bottom-0 w-full"
+              >
                 <div class="flex mt-auto mb-3">
                   <h4 class="text-white mb-0">Michelle</h4>
                   <p class="badge ms-4 text-white"><em>Barista</em></p>
@@ -252,7 +253,7 @@
               </div>
             </div>
             <!-- Team Member 2 -->
-            <div class="team-block-wrap">
+            <div class="relative rounded-[15px] overflow-hidden">
               <div class="relative overflow-hidden rounded-lg">
                 <img
                   src="images/team/cute-korean-barista-girl-pouring-coffee-prepare-filter-batch-brew-pour-working-cafe.jpg"
@@ -260,7 +261,9 @@
                   alt="Sandra"
                 />
               </div>
-              <div class="team-block-info flex flex-col justify-end mt-auto">
+              <div
+                class="flex flex-col justify-end mt-auto absolute z-10 top-0 p-3 bg-gradient-to-b from-black/30 to-[#bc6c25] bottom-0 w-full"
+              >
                 <div class="flex mt-auto mb-3">
                   <h4 class="text-white mb-0">Michelle</h4>
                   <p class="badge ms-4 text-white"><em>Barista</em></p>
@@ -272,7 +275,7 @@
             </div>
 
             <!-- Team Member 3 -->
-            <div class="team-block-wrap">
+            <div class="relative rounded-[15px] overflow-hidden">
               <div class="relative overflow-hidden rounded-lg">
                 <img
                   src="images/team/small-business-owner-drinking-coffee.jpg"
@@ -280,7 +283,9 @@
                   alt="Jackson"
                 />
               </div>
-              <div class="team-block-info flex flex-col justify-end mt-auto">
+              <div
+                class="flex flex-col justify-end mt-auto absolute z-10 top-0 p-3 bg-gradient-to-b from-black/30 to-[#bc6c25] bottom-0 w-full"
+              >
                 <div class="flex mt-auto mb-3">
                   <h4 class="text-white mb-0">Michelle</h4>
                   <p class="badge ms-4 text-white"><em>Barista</em></p>
@@ -292,7 +297,7 @@
             </div>
 
             <!-- Team Member 4 -->
-            <div class="team-block-wrap">
+            <div class="relative rounded-[15px] overflow-hidden">
               <div class="relative overflow-hidden rounded-lg">
                 <img
                   src="images/team/smiley-business-woman-working-cashier.jpg"
@@ -300,10 +305,14 @@
                   alt="Michelle"
                 />
               </div>
-              <div class="team-block-info flex flex-col justify-end mt-auto">
+              <div
+                class="flex flex-col justify-end mt-auto absolute z-10 top-0 p-3 bg-gradient-to-b from-black/30 to-[#bc6c25] bottom-0 w-full"
+              >
                 <div class="flex mt-auto mb-3">
                   <h4 class="text-white mb-0">Michelle</h4>
-                  <p class="badge ms-4 text-white"><em>Barista</em></p>
+                  <p class="badge ms-4 text-white">
+                    <em class="p-2">Barista</em>
+                  </p>
                 </div>
                 <p class="text-white mb-0">
                   your favourite coffee daily consectetur.
@@ -315,16 +324,13 @@
       </section>
 
       <section
-        class="py-16 bg-cover bg-center text-white"
+        class="py-16 bg-cover bg-center text-white bg-[url('https://caphenguyenchat.vn/wp-content/uploads/2017/11/tim-hieu-ve-ca-phe-y-ca-phe-cappuccino-do-uong-thinh-hanh-4.jpg')]"
         id="section_3"
-        style="
-          background-image: url('https://caphenguyenchat.vn/wp-content/uploads/2017/11/tim-hieu-ve-ca-phe-y-ca-phe-cappuccino-do-uong-thinh-hanh-4.jpg');
-        "
       >
         <div class="container mx-auto px-6 lg:px-12">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <!-- Breakfast Menu -->
-            <div class="menu-block-wrap">
+            <div class="bg-black/65 rounded-md p-[45px]">
               <div class="text-center mb-6">
                 <em class="block text-sm uppercase tracking-wide text-teal-400"
                   >Delicious Menu</em
@@ -410,7 +416,7 @@
             </div>
 
             <!-- Coffee Menu -->
-            <div class="menu-block-wrap">
+            <div class="bg-black/65 rounded-md p-[45px]">
               <div class="text-center mb-6">
                 <em class="block text-sm uppercase tracking-wide text-teal-400"
                   >Favourite Menu</em
@@ -517,9 +523,11 @@
             <div class="timeline-container mb-12">
               <div class="flex justify-start items-center">
                 <div
-                  class="timeline-content max-w-lg p-6 bg-white shadow-lg rounded-xl transform transition-all hover:scale-105 duration-300"
+                  class="timeline-content max-w-lg bg-white shadow-lg rounded-xl transform transition-all hover:scale-105 duration-300 border-2 border-white overflow-hidden"
                 >
-                  <div class="reviews-block flex items-center mb-6 p-2">
+                  <div
+                    class="reviews-block flex items-center p-6 bg-[url('https://caphenguyenchat.vn/wp-content/uploads/2017/11/tim-hieu-ve-ca-phe-y-ca-phe-cappuccino-do-uong-thinh-hanh-4.jpg')]"
+                  >
                     <img
                       src="images/reviews/young-woman-with-round-glasses-yellow-sweater.jpg"
                       class="reviews-block-image w-16 h-16 rounded-full object-cover border-4 border-teal-400"
@@ -530,7 +538,7 @@
                       <em class="text-sm text-teal-200">Customer</em>
                     </div>
                   </div>
-                  <div class="reviews-block-info bg-[#b78752]">
+                  <div class="reviews-block-info bg-[#b78752] p-6">
                     <p class="text-base text-gray-600 mb-4">
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -557,9 +565,11 @@
             <div class="timeline-container mb-12">
               <div class="flex justify-end items-center">
                 <div
-                  class="timeline-content max-w-lg p-6 bg-white shadow-lg rounded-xl transform transition-all hover:scale-105 duration-300"
+                  class="timeline-content max-w-lg bg-white shadow-lg rounded-xl transform transition-all hover:scale-105 duration-300 border-2 border-white overflow-hidden"
                 >
-                  <div class="reviews-block flex items-center mb-6 p-2">
+                  <div
+                    class="reviews-block flex items-center p-6 bg-[url('https://caphenguyenchat.vn/wp-content/uploads/2017/11/tim-hieu-ve-ca-phe-y-ca-phe-cappuccino-do-uong-thinh-hanh-4.jpg')]"
+                  >
                     <img
                       src="images/reviews/senior-man-white-sweater-eyeglasses.jpg"
                       class="reviews-block-image w-16 h-16 rounded-full object-cover border-4 border-teal-400"
@@ -570,7 +580,7 @@
                       <em class="text-sm text-teal-200">Customer</em>
                     </div>
                   </div>
-                  <div class="reviews-block-info bg-[#b78752]">
+                  <div class="reviews-block-info bg-[#b78752] p-6">
                     <p class="text-base text-gray-600 mb-4">
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -597,9 +607,11 @@
             <div class="timeline-container">
               <div class="flex justify-start items-center">
                 <div
-                  class="timeline-content max-w-lg p-6 bg-white shadow-lg rounded-xl transform transition-all hover:scale-105 duration-300"
+                  class="timeline-content max-w-lg bg-white shadow-lg rounded-xl transform transition-all hover:scale-105 duration-300 border-2 border-white overflow-hidden"
                 >
-                  <div class="reviews-block flex items-center mb-6 p-2">
+                  <div
+                    class="reviews-block flex items-center p-6 bg-[url('https://caphenguyenchat.vn/wp-content/uploads/2017/11/tim-hieu-ve-ca-phe-y-ca-phe-cappuccino-do-uong-thinh-hanh-4.jpg')]"
+                  >
                     <img
                       src="images/reviews/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair.jpg"
                       class="reviews-block-image w-16 h-16 rounded-full object-cover border-4 border-teal-400"
@@ -610,7 +622,7 @@
                       <em class="text-sm text-teal-200">Customer</em>
                     </div>
                   </div>
-                  <div class="reviews-block-info bg-[#b78752]">
+                  <div class="reviews-block-info bg-[#b78752] p-6">
                     <p class="text-base text-gray-600 mb-4">
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -637,101 +649,105 @@
       </section>
 
       <section
-        class="contact-section section-padding bg-gray-800 py-20"
+        class="bg-cover bg-[url('https://img.goodfon.com/wallpaper/big/a/7b/background-heart-zerna-texture-love-coffee-beans-kofe-serdts.webp')]"
         id="section_5"
       >
-        <div class="container mx-auto px-4">
-          <div class="text-center mb-12">
-            <em class="text-white text-lg">Say Hello</em>
-            <h2 class="text-white text-3xl font-bold mb-4">Contact</h2>
-          </div>
-
-          <div class="flex flex-wrap">
-            <!-- Contact Form -->
-            <div class="w-full lg:w-1/2 px-4 mb-10 lg:mb-0">
-              <form
-                action="#"
-                method="post"
-                class="custom-form contact-form"
-                role="form"
-              >
-                <div class="flex flex-wrap">
-                  <div class="w-full lg:w-1/2 px-4 mb-4">
-                    <label
-                      for="name"
-                      class="block text-white font-semibold mb-2"
-                      >Name <sup class="text-red-500">*</sup></label
-                    >
-                    <input
-                      type="text"
-                      name="name"
-                      id="name"
-                      class="w-full p-3 border border-gray-300 rounded-lg"
-                      placeholder="Jackson"
-                      required
-                    />
-                  </div>
-
-                  <div class="w-full lg:w-1/2 px-4 mb-4">
-                    <label
-                      for="email"
-                      class="block text-white font-semibold mb-2"
-                      >Email Address</label
-                    >
-                    <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      pattern="[^ @]*@[^ @]*"
-                      class="w-full p-3 border border-gray-300 rounded-lg"
-                      placeholder="Jack@gmail.com"
-                      required
-                    />
-                  </div>
-
-                  <div class="w-full px-4 mb-4">
-                    <label
-                      for="message"
-                      class="block text-white font-semibold mb-2"
-                      >How can we help?</label
-                    >
-                    <textarea
-                      name="message"
-                      rows="4"
-                      class="w-full p-3 border border-gray-300 rounded-lg"
-                      id="message"
-                      placeholder="Message"
-                      required
-                    ></textarea>
-                  </div>
-                </div>
-
-                <div class="w-1/2 mx-auto mt-3">
-                  <button
-                    type="submit"
-                    class="w-full p-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-400 transition duration-300"
-                  >
-                    Send Message
-                  </button>
-                </div>
-              </form>
+        <div
+          class="bg-black/30 flex flex-col justify-end bg-gradient-to-b from-black/30 to-[#bc6c25] bottom-0 w-full"
+        >
+          <div class="container mx-auto px-4 m-6">
+            <div class="mb-12">
+              <em class="text-white text-lg">Say Hello</em>
+              <h2 class="text-white text-3xl font-bold mb-4">Contact</h2>
             </div>
 
-            <!-- Google Map -->
-            <div class="w-full lg:w-1/2 px-4 mt-10 lg:mt-0">
-              <iframe
-                class="w-full h-72 border-0 rounded-lg"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5039.668141741662!2d72.81814769288509!3d19.043340656729775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c994f34a7355%3A0x2680d63a6f7e33c2!2sLover%20Point!5e1!3m2!1sen!2sth!4v1692722771770!5m2!1sen!2sth"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
+            <div class="flex flex-wrap">
+              <!-- Contact Form -->
+              <div class="w-full lg:w-1/2 mb-10 lg:mb-0 px-4">
+                <form
+                  action="#"
+                  method="post"
+                  class="custom-form contact-form"
+                  role="form"
+                >
+                  <div class="flex flex-wrap">
+                    <div class="w-full lg:w-1/2 mb-4 pr-2">
+                      <label
+                        for="name"
+                        class="block text-white font-semibold mb-2"
+                        >Name <sup class="text-red-500">*</sup></label
+                      >
+                      <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        class="w-full p-3 border border-gray-300 rounded-lg bg-transparent"
+                        placeholder="Jackson"
+                        required
+                      />
+                    </div>
+
+                    <div class="w-full lg:w-1/2 mb-4">
+                      <label
+                        for="email"
+                        class="block text-white font-semibold mb-2"
+                        >Email Address</label
+                      >
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        pattern="[^ @]*@[^ @]*"
+                        class="w-full p-3 border border-gray-300 rounded-lg bg-transparent"
+                        placeholder="Jack@gmail.com"
+                        required
+                      />
+                    </div>
+
+                    <div class="w-full mb-4">
+                      <label
+                        for="message"
+                        class="block text-white font-semibold mb-2"
+                        >How can we help?</label
+                      >
+                      <textarea
+                        name="message"
+                        rows="4"
+                        class="w-full p-3 border border-gray-300 rounded-lg bg-transparent"
+                        id="message"
+                        placeholder="Message"
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <div class="w-1/2 mx-auto mt-3">
+                    <button
+                      type="submit"
+                      class="w-full p-3 bg-[#BC6C25] text-white rounded-lg hover:bg-yellow-400 transition duration-300 border-2 border-white overflow-hidden"
+                    >
+                      Send Message
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- Google Map -->
+              <div class="w-full lg:w-1/2 mt-10 lg:mt-0 px-4">
+                <iframe
+                  class="w-full h-72 border-0 rounded-lg"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5039.668141741662!2d72.81814769288509!3d19.043340656729775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c994f34a7355%3A0x2680d63a6f7e33c2!2sLover%20Point!5e1!3m2!1sen!2sth!4v1692722771770!5m2!1sen!2sth"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <footer class="site-footer bg-gray-900 text-white py-12">
+      <footer class="site-footer bg-[#BC6C25] text-white py-12">
         <div class="container mx-auto px-4">
           <div class="flex flex-wrap">
             <div class="w-full lg:w-1/4 px-4 mb-10 lg:mb-0">
@@ -829,7 +845,6 @@
 
     <!-- JAVASCRIPT FILES -->
     <script src="js/jquery.min.js"></script>
-
     <script src="js/jquery.sticky.js"></script>
     <script src="js/click-scroll.js"></script>
     <script src="js/vegas.min.js"></script>
